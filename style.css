@@ -1,0 +1,58 @@
+.font-orbitron {
+  font-family: "Orbitron", sans-serif;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  /* Ganti sesuai pilihan isi teks */
+}
+
+h1,
+.font-script {
+  font-family: "Allura", cursive;
+  /* Ganti sesuai pilihan judul */
+}
+
+.active {
+  color: #0284c7;
+  font-weight: bold;
+}
+
+.font-orbitron {
+  font-family: "Orbitron", sans-serif;
+}
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+@keyframes hujanTurun {
+  0% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+.huruf-hujan {
+  display: inline-block;
+  font-size: 3.5rem; /* Ubah ukuran huruf di sini */
+  animation-name: hujanTurun;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  font-family: Allura;
+}

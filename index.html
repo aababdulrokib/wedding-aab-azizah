@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Aab & Azizah</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animate.css CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+    <!-- Google Fonts (NEW) -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Nunito:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Naskh+Arabic:wght@400..700&family=Cookie&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+
+    <!-- SwiperJS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Orbitron:wght@500&display=swap"
+        rel="stylesheet">
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="text-gray-800 scroll-smooth">
+    <!-- Musik -->
+    <audio id="musik" src="musik/lagu.mp3" loop></audio>
+
+    <!-- Tombol kontrol musik (bisa disembunyikan kalau tidak mau kontrol manual) -->
+    <button id="btnMusik" onclick="toggleMusik()"
+        class="fixed bottom-24 right-4 z-50 bg-white p-3 rounded-full shadow text-xl">
+        🔊
+    </button>
+
+
+    <!-- Opening / Splash dengan Ayat Ar-Rum -->
+    <div id="opening"
+        class="fixed inset-0 z-50 bg-[url('https://source.unsplash.com/1600x900/?islamic,flower')] bg-cover bg-center flex items-center justify-center text-white">
+        <div
+            class="bg-black/60 backdrop-blur-sm p-6 sm:p-10 rounded-xl text-center animate__animated animate__fadeInDown space-y-4 max-w-xl mx-4">
+
+            <p class="text-2xl sm:text-3xl text-sky-100 animate__animated animate__fadeInUp animate__delay-1s">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </p>
+
+            <p
+                class="text-2xl sm:text-3xl font-semibold leading-relaxed animate__animated animate__fadeInUp animate__delay-2s">
+                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا<br class="hidden sm:block" />
+                لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً<br class="hidden sm:block" />
+                إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+            </p>
+
+            <p class="text-sm sm:text-base mt-2 animate__animated animate__fadeInUp animate__delay-3s">
+                “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu
+                sendiri, <br>agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
+                kasih dan sayang.”
+                <br><span class="italic">— QS. Ar-Rum: 21</span>
+            </p>
+
+            <button onclick="bukaUndangan()"
+                class="bg-sky-500 text-white px-6 py-3 rounded-full shadow-mdtransition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
+                Buka Undangan
+            </button>
+
+        </div>
+    </div>
+
+    <div id="undangan" class="hidden animate__animated animate__fadeIn">
+
+        <!-- Hero Section -->
+        <!-- Section Beranda -->
+        <section id="beranda" class="text-center py-10 px-6 bg-white" data-aos="fade-up">
+            <h1 class="text-3xl sm:text-4xl font-playfair text-sky-900 mb-2">
+                <span id="namaPria"></span>
+            </h1>
+            <h1 class="text-2xl font-playfair text-sky-700 mb-2">&</h1>
+            <h1 class="text-3xl sm:text-4xl font-playfair text-sky-900 mb-4">
+                <span id="namaWanita"></span>
+            </h1>
+
+            <p class="text-xl font-poppins text-sky-500 mb-1">14 Juni 2025</p>
+            <p class="text-md font-poppins text-sky-400">
+                Kp. Bunikasih Peuntas, RT 001 RW 007, Desa Mekarwangi, Kec. Warungkondang Kab. Cianjur 43261
+            </p>
+        </section>
+
+
+        <section id="countdown-section"
+            class="text-center py-14 px-6 bg-white max-w-4xl mx-auto rounded-xl shadow-lg space-y-4" data-aos="zoom-in">
+            <h2 class="text-2xl font-bold text-sky-700">Menuju Hari Bahagia</h2>
+            <div id="countdown" class="flex justify-center gap-4 font-orbitron animate__animated animate__fadeInUp">
+                <!-- Countdown boxes diisi oleh JS -->
+            </div>
+        </section>
+
+
+
+        <!-- Section Jadwal Akad & Resepsi -->
+        <section id="resepsi" class="py-10 px-6 bg-white max-w-4xl mx-auto rounded-xl shadow-lg" data-aos="zoom-in">
+            <h2 class="text-2xl font-bold text-center text-sky-700 mb-6">Jadwal Acara</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Kartu Akad Nikah -->
+                <div class="bg-sky-100 rounded-2xl p-8 shadow-md flex flex-col items-center text-center
+                  hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <!-- Judul Akad -->
+                    <h3 class="text-2xl font-bold text-sky-900 mb-4">Akad Nikah</h3>
+
+                    <!-- Detail Waktu dan Tempat dengan icon -->
+                    <div class="bg-white rounded-xl shadow p-6 max-w-xs w-full space-y-4 text-left">
+                        <!-- Tanggal -->
+                        <div class="flex items-center gap-3 text-sky-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2v-7H3v7a2 2 0 002 2z" />
+                            </svg>
+                            <p><strong>14 Juni 2025</strong></p>
+                        </div>
+                        <!-- Jam -->
+                        <div class="flex items-center gap-3 text-sky-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p><strong>Pukul 09:00 WIB</strong></p>
+                        </div>
+                        <!-- Lokasi -->
+                        <div class="flex items-center gap-3 text-sky-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 11c1.656 0 3-1.343 3-3s-1.344-3-3-3-3 1.343-3 3 1.344 3 3 3z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 22s8-4.5 8-10a8 8 0 10-16 0c0 5.5 8 10 8 10z" />
+                            </svg>
+                            <p><strong>Kp. Bunikasih Peuntas, RT 001 RW 007, Desa Mekarwangi, Kec.
+                                    Warungkondang Kab. Cianjur 43261</strong>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kartu Resepsi -->
+                <div class="bg-pink-100 rounded-2xl p-8 shadow-md flex flex-col items-center text-center
+                  hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <!-- Judul Resepsi -->
+                    <h3 class="text-2xl font-bold text-pink-700 mb-4">Resepsi</h3>
+
+                    <!-- Detail Waktu dan Tempat dengan icon -->
+                    <div class="bg-white rounded-xl shadow p-6 max-w-xs w-full space-y-4 text-left">
+                        <!-- Tanggal -->
+                        <div class="flex items-center gap-3 text-pink-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2v-7H3v7a2 2 0 002 2z" />
+                            </svg>
+                            <p><strong>14 Juni 2025</strong></p>
+                        </div>
+                        <!-- Jam -->
+                        <div class="flex items-center gap-3 text-pink-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p><strong>Pukul 09:30 WIB</strong></p>
+                        </div>
+                        <!-- Lokasi -->
+                        <div class="flex items-center gap-3 text-pink-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 11c1.656 0 3-1.343 3-3s-1.344-3-3-3-3 1.343-3 3 1.344 3 3 3z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 22s8-4.5 8-10a8 8 0 10-16 0c0 5.5 8 10 8 10z" />
+                            </svg>
+                            <p><strong>Kp. Bunikasih Peuntas, RT 001 RW 007, Desa Mekarwangi, Kec.
+                                    Warungkondang Kab. Cianjur 43261</strong>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Galeri -->
+        <!-- Section Galeri & Profil Pengantin -->
+        <section id="galeri" class="py-12 px-6 bg-sky-50" data-aos="fade-right">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl font-bold text-center text-sky-700 mb-6">Kedua Mempelai</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- Mempelai Pria -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 
+                    animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                        <img src="images/pameget.png" alt="Pengantin Pria"
+                            class="w-full h-64 object-cover rounded-xl mb-4">
+                        <h3 class="text-2xl font-bold text-sky-800">H. Aab Abdul Rokib, S.Kom</h3>
+                        <p class="text-md font-poppins text-sky-400">Putra Sulung Bapak H.Hasan Basri (alm) & Ibu Hj.
+                            Uyun Yunasih</p>
+                        <a href="https://instagram.com/aab_ar20" target="_blank"
+                            class="inline-flex items-center mt-3 text-sky-600 hover:text-sky-800">
+                            <!-- Icon Instagram -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.5-2a1 1 0 110 2 1 1 0 010-2z" />
+                            </svg>
+                            @aab_ar20
+                        </a>
+                    </div>
+
+                    <!-- Mempelai Wanita -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 
+                    animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                        <img src="images/istri.png" alt="Pengantin Wanita"
+                            class="w-full h-64 object-cover rounded-xl mb-4">
+                        <h3 class="text-2xl font-bold text-pink-700">Azizah</h3>
+                        <p class="text-md font-poppins text-sky-400">Putri Bungsu Bapak H. Jalaludin Syauti (alm) & Ibu
+                            Hj.
+                            Neneng Aisyah
+                        </p>
+                        <a href="https://instagram.com/softlotusieee_" target="_blank"
+                            class="inline-flex items-center mt-3 text-pink-600 hover:text-pink-800">
+                            <!-- Icon Instagram -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.5-2a1 1 0 110 2 1 1 0 010-2z" />
+                            </svg>
+                            @st_azizahh
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section id="rsvp" class="py-14 px-6 bg-white max-w-3xl mx-auto rounded-xl shadow-lg space-y-6"
+            data-aos="zoom-in">
+            <h2 class="text-2xl font-bold text-center text-sky-700">RSVP & Ucapan</h2>
+
+            <form class="space-y-3" onsubmit="handleRSVP(event)">
+                <input required type="text" id="nama" placeholder="Nama" class="w-full border p-2 rounded" />
+
+                <select id="status" class="w-full border p-2 rounded">
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                </select>
+
+                <textarea id="ucapan" placeholder="Ucapan untuk pengantin..."
+                    class="w-full border p-2 rounded"></textarea>
+
+                <button class="bg-sky-600 text-white py-2 px-4 rounded hover:bg-sky-700 w-full">
+                    Kirim
+                </button>
+            </form>
+
+            <div id="listUcapan" class="space-y-4"></div>
+        </section>
+
+
+        <!-- Love Gift -->
+        <section id="lovegift" class="py-14 px-6 bg-white max-w-4xl mx-auto rounded-xl shadow-lg space-y-6"
+            data-aos="flip-left">
+            <h2 class="text-2xl font-bold text-center text-sky-700">Love Gift</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- BRI -->
+                <div class="bg-white rounded-xl text-center shadow-lg p-6">
+                    <img src="images/LogoBRI.png" alt="Bank BRI" class="h-10 mx-auto mb-3">
+                    <p class="text-gray-700">a.n. Aab Abdul Rokib</p>
+                    <p id="rekeningBRI" class="text-lg font-bold tracking-wider mb-2">4257 0102 0326 536</p>
+                    <button onclick="salinTeks('rekeningBRI')"
+                        class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">
+                        Copy
+                    </button>
+                </div>
+
+                <!-- DANA -->
+                <div class="bg-white rounded-xl text-center shadow-lg p-6">
+                    <img src="images/LogoDana.png" alt="Dana" class="h-10 mx-auto mb-3">
+                    <p class="text-gray-700">a.n. Aab Abdul Rokib</p>
+                    <p id="rekeningDANA" class="text-lg font-bold tracking-wider mb-2">0831 3004 2004</p>
+                    <button onclick="salinTeks('rekeningDANA')"
+                        class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition">
+                        Copy
+                    </button>
+                </div>
+
+                <div id="toast"
+                    class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-4 py-2 rounded-lg shadow-lg opacity-0 transition-opacity duration-500 z-50">
+                    Nomor rekening disalin!
+                </div>
+
+        </section>
+
+
+        <!-- Lokasi -->
+        <!-- Lokasi -->
+        <section id="lokasi" class="py-14 px-6 bg-white max-w-4xl mx-auto rounded-xl shadow-lg space-y-6"
+            data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-center text-sky-700">Lokasi Acara</h2>
+
+            <div class="space-y-4 text-center">
+                <p class="text-md text-sky-500">
+                    Kp. Bunikasih Peuntas, RT 001 RW 007, Desa Mekarwangi, Kec. Warungkondang, Kab. Cianjur 43261
+                </p>
+
+                <div class="rounded-xl overflow-hidden shadow-md">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3584.7594955536156!2d107.07011!3d-6.85602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwNTEnMjEuNyJTIDEwN8KwMDQnMTIuNCJF!5e1!3m2!1sid!2sid!4v1749431488254!5m2!1sid!2sid"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="rounded-xl"></iframe>
+                </div>
+
+                <a href="https://maps.app.goo.gl/VzLdejXkdPzeDTUbA" target="_blank"
+                    class="inline-block bg-sky-600 text-white px-6 py-3 rounded-xl hover:bg-sky-700 transition shadow">
+                    Buka di Google Maps
+                </a>
+            </div>
+        </section>
+
+
+        <!-- Navigasi Bawah -->
+        <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-t p-2 border-t border-gray-200 z-50">
+            <div class="flex justify-around text-center text-sm text-sky-600 font-medium">
+                <a href="#beranda" class="flex flex-col items-center hover:text-sky-800">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4">
+                        </path>
+                    </svg>
+                    Beranda
+                </a>
+                <a href="#resepsi" class="flex flex-col items-center hover:text-sky-800">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8 7V3m8 4V3m-9 4h10M5 11h14M5 15h14M5 19h14">
+                        </path>
+                    </svg>
+                    Resepsi
+                </a>
+                <a href="#galeri" class="flex flex-col items-center hover:text-sky-800">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h18M3 10h18M5 15h14M7 20h10">
+                        </path>
+                    </svg>
+                    Galeri
+                </a>
+                <a href="#lovegift" class="flex flex-col items-center hover:text-sky-800">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 5a4 4 0 014-4 4 4 0 014 4v2h4V5a4 4 0 014-4 4 4 0 014 4v14a4 4 0 01-4 4H4a4 4 0 01-4-4V5z">
+                        </path>
+                    </svg>
+                    Gift
+                </a>
+                <a href="#lokasi" class="flex flex-col items-center hover:text-sky-800">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17.657 16.657L13.414 21 9.172 16.657A8 8 0 1117.657 16.657z">
+                        </path>
+                    </svg>
+                    Lokasi
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Script -->
+
+    <!-- Firebase Init -->
+
+
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+
+
+</html>
